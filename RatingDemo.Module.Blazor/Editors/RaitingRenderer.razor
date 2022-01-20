@@ -1,0 +1,10 @@
+﻿@using AntDesign
+
+<Rate AllowClear="false" DefaultValue="3" Value="@RaitingModel.Value" ValueChanged="@(e => RaitingModel.SetValueFromUI((decimal)e))"></Rate>
+
+
+@code {
+    [Parameter]
+    public RaitingModel RaitingModel { get; set; }
+    public static RenderFragment Create(RaitingModel raitingModel) =>@<RaitingRenderer RaitingModel=@raitingModel />;
+}

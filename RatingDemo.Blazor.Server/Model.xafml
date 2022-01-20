@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Comment_ListView" Visible="False" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="21.2.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Comment_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="100" Caption="Comment Text" Index="0">
+            <LayoutItem Id="CommentText" RelativeSize="92.5233644859813" CaptionLocation="Top" />
+            <LayoutItem Id="Raiting" ViewItem="Raiting" Index="1" RelativeSize="7.4766355140186915" CaptionLocation="Top" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors" RelativeSize="5.874499332443258" Removed="True">
+            <LayoutGroup Id="Comment" Caption="Comment" RelativeSize="100" Removed="True">
+              <LayoutItem Id="Raiting" RelativeSize="100" Removed="True" />
+              <LayoutItem Id="Service" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Service_Comments_ListView">
+      <Columns>
+        <ColumnInfo Id="CommentText" Index="0" Width="121" />
+        <ColumnInfo Id="Raiting" Index="1" Width="71" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

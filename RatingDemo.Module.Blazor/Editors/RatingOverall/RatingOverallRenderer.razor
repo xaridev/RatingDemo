@@ -1,0 +1,30 @@
+﻿@using AntDesign
+@using RatingDemo.Module.BusinessObjects
+
+<Rate AllowClear="false" Value="@Value" AllowHalf="true" Disabled="true"></Rate>
+
+
+@code {
+    [Parameter]
+    public RatingOverallModel RatingOverallModel { get; set; }
+    public static RenderFragment Create(RatingOverallModel raitingModel) =>@<RatingOverallRenderer RatingOverallModel=@raitingModel />;
+    decimal Value { get; set; }
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        decimal sum = 0;
+        if(((Service)RatingOverallModel.CurrentObject).Comments.Count > 0)
+        {
+            foreach (var item in ((Service)RatingOverallModel.CurrentObject).Comments)
+            {
+                sum += item.Raiting;
+            }
+            Value = sum / ((Service)RatingOverallModel.CurrentObject).Comments.Count;
+        }
+        else
+        {
+            Value = 0;
+        }
+
+    }
+}
